@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <form v-on:submit.prevent="submit">
+        <!-- 페이지 자동 리로드됨 -->
+        <!-- .prevent 라는 이벤트 수식어(event modifier)를 submit 뒤에 추가하면 리로드가 되지 않는다. -->
+        <!-- <input type="text" :value="text" @keyup="updateText" /> -->
+        <input type="text" v-model="text" />
+        <br /><br />
+        {{text}}
+        <br /><br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          text: "text",
+        },
+        methods: {
+          submit() {
+            console.log("hello");
+            alert("submitted");
+          },
+          // updateText(event) {
+          //   this.text = event.target.value;
+          // },
+        },
+      });
+    </script>
+  </body>
+</html>
